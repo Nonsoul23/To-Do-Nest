@@ -60,4 +60,5 @@ User login for personal task collections
 👨‍💻 Author:
 
 https://github.com/Nonsoul23
+
 A passionate web developer who loves to make everyday apps fun, interactive, and visually magical 👻
