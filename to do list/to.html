@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do-List 🎃</title>
+  <link rel="stylesheet" href="st.css" />
+</head>
+<body>
+  <script>
+    // Create floating bubbles dynamically
+    for (let i = 0; i < 25; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      b.style.left = `${Math.random() * 100}vw`;
+      b.style.animationDuration = `${6 + Math.random() * 6}s`;
+      b.style.width = b.style.height = `${10 + Math.random() * 40}px`;
+      document.body.appendChild(b);
+    }
+  </script>
+
+  <div class="container">
+    <!-- Gallery Section -->
+    <div class="gallery" id="gallery">
+      <h2>📸 Memory Gallery</h2>
+    </div>
+
+    <!-- Tasks Section -->
+    <div class="tasks">
+      <h2>📝 To-Do List</h2>
+      <div class="input-area">
+        <input type="text" id="taskInput" placeholder="Add new task..." />
+        <button id="addTask">Add</button>
+      </div>
+      <ul id="taskList"></ul>
+    </div>
+  </div>
+
+  <!-- Popup for uploading photos -->
+  <div id="uploadPopup">
+    <div class="popup-content">
+      <h3>Add Memory Collage</h3>
+      <input type="file" id="photoInput" multiple accept="image/*" />
+      <input type="text" id="captionInput" placeholder="Write a caption..." />
+      <button id="saveMemory">Save</button>
+    </div>
+  </div>
+
+  <script src="t.js"></script>
+</body>
+</html>

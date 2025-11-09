@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at center, #0d0d0d, #1a1a2e);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Floating bubbles */
+.bubble {
+  position: fixed;
+  bottom: -150px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  animation: rise 10s infinite ease-in;
+}
+@keyframes rise {
+  from { transform: translateY(0) scale(1); opacity: 0.9; }
+  to { transform: translateY(-110vh) scale(1.4); opacity: 0; }
+}
+
+/* Layout */
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 40px;
+}
+
+/* Gallery */
+.gallery {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(255, 100, 0, 0.4);
+}
+.gallery h2 {
+  text-align: center;
+  color: #ff9100;
+}
+.memory-card {
+  margin: 25px 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 10px;
+  transition: all 0.4s ease;
+  animation: fadeIn 0.8s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.8); }
+}
+
+/* Collage */
+.collage {
+  display: grid;
+  grid-gap: 6px;
+  margin-bottom: 10px;
+}
+.collage img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.collage img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Collage Styles */
+.style1 { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+.style2 { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 120px; }
+.style3 { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.style3 img { width: calc(33% - 4px); transform: rotate(-3deg); }
+.style4 { position: relative; }
+.style4 img {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.style4 img:nth-child(1){top:0;left:0;}
+.style4 img:nth-child(2){top:20px;left:60px;}
+.style4 img:nth-child(3){top:40px;left:120px;}
+.style4 img:nth-child(4){top:60px;left:180px;}
+.style4 img:nth-child(5){top:80px;left:240px;}
+
+.memory-caption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 8px;
+  color: #ffcc80;
+}
+
+/* Tasks Section */
+.tasks {
+  flex: 0.8;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+.tasks h2 {
+  color: #00e6e6;
+  text-align: center;
+}
+.input-area {
+  display: flex;
+}
+input, button {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 8px;
+  font-size: 1rem;
+}
+#taskInput { flex: 1; }
+#addTask {
+  background: #00e6e6;
+  color: #000;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+li {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+li.completed { text-decoration: line-through; color: #bbb; }
+.delete {
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Popup */
+#uploadPopup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+.popup-content {
+  background: #222;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  width: 320px;
+}
+.popup-content input, .popup-content button {
+  width: 90%;
+  margin: 8px;
+}
